@@ -1,0 +1,6 @@
+browser -> server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+server -> creates new object with content and date
+
+reload
+
+browser executes event handler to display notes
