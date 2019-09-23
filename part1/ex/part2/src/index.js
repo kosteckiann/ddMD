@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom'
 
 const Statistics = (props) => {
   console.log(props)
+  if (props.total === 0) {
+    return (
+      <div>
+        No feedback given
+      </div>
+    )
+  }
   return(
     <div>
       <div>all {props.total}</div>
