@@ -1,12 +1,50 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Course = ({ course }) => {
+    console.log(course)
+    const rows = () => course.parts.map(courses =>
+        <div key={courses.id}>
+            {courses.name} {courses.exercises}
+        </div>
+        )
+    return (
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+        rows()
+
+        
+
+    )
+}
+      
+const App = () => {
+    const course = {
+      name: 'Half Stack application development',
+      parts: [
+        {
+          name: 'Fundamentals of React',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'Using props to pass data',
+          exercises: 7,
+          id: 2
+        },
+        {
+          name: 'State of a component',
+          exercises: 14,
+          id: 3
+        }
+      ]
+    }
+
+    return (
+      <div>
+        <h1>{course.name}</h1>
+        <Course course={course} />
+      </div>
+    )
+  }
+
+  ReactDOM.render(<App />, document.getElementById('root'))
