@@ -42,12 +42,12 @@ const App = () => {
       ]
     }
 
-    let sum = 0
+
     const result = course.parts.map(add => add.exercises)
-    result.forEach(value => {
-        sum = sum + value
-    })
-    
+
+    const sum = result.reduce(
+        (s, p) => s + p
+    )
 
     return (
       <div>
