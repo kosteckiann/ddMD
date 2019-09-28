@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom';
 
 const Course = ({ course }) => {
     console.log(course)
+
     const rows = () => course.parts.map(courses =>
         <div key={courses.id}>
             {courses.name} {courses.exercises}
         </div>
         )
+
     return (
-
         rows()
-
-        
-
     )
 }
       
@@ -35,14 +33,27 @@ const App = () => {
           name: 'State of a component',
           exercises: 14,
           id: 3
+        },
+        {
+            name: "Redux",
+            exercises: 11,
+            id: 4
         }
       ]
     }
+
+    let sum = 0
+    const result = course.parts.map(add => add.exercises)
+    result.forEach(value => {
+        sum = sum + value
+    })
+    
 
     return (
       <div>
         <h1>{course.name}</h1>
         <Course course={course} />
+        <h4>total of {sum} exercises</h4>
       </div>
     )
   }
